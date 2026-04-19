@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Provided OKLCH Palette */
+  --color-50: oklch(0.95 0.03 356);
+  --color-100: oklch(0.85 0.09 359);
+  --color-200: oklch(0.77 0.15 1);
+  --color-300: oklch(0.7 0.2 5);
+  --color-400: oklch(0.66 0.24 10);
+  --color-500: oklch(0.63 0.25 17);
+  --color-600: oklch(0.55 0.22 16);
+  --color-700: oklch(0.45 0.18 15);
+  --color-800: oklch(0.36 0.14 14);
+  --color-900: oklch(0.25 0.1 10);
+  --color-950: oklch(0.14 0.06 1);
+
+  /* White & Red-Orange Glassmorphism Theme */
+  --background: var(--color-50);
+  --background-secondary: var(--color-100);
+  --foreground: var(--color-950);
+  --foreground-secondary: var(--color-800);
+
+  /* Glass UI - Using OKLCH with Alpha */
+  --glass-bg: oklch(1 0 0 / 0.7);
+  --glass-border: oklch(0.63 0.25 17 / 0.2);
+  --glass-hover: oklch(1 0 0 / 0.8);
+
+  /* Brand Colors */
+  --primary: var(--color-600);
+  --primary-foreground: var(--color-50);
+  --accent: var(--color-500);
+  --accent-foreground: var(--color-50);
+
+  /* UI Elements */
+  --card: oklch(1 0 0 / 0.7);
+  --card-foreground: var(--color-950);
+  --popover: oklch(1 0 0 / 0.7);
+  --popover-foreground: var(--color-950);
+  --secondary: var(--color-200);
+  --secondary-foreground: var(--color-900);
+  --muted: var(--color-100);
+  --muted-foreground: var(--color-600);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: #ffffff;
+  --border: oklch(0.63 0.25 17 / 0.15);
+  --input: oklch(1 0 0 / 0.7);
+  --ring: var(--color-500);
+
+  /* Chart Colors */
+  --chart-1: var(--color-500);
+  --chart-2: var(--color-600);
+  --chart-3: var(--color-400);
+  --chart-4: var(--color-300);
+  --chart-5: var(--color-200);
+
+  /* Radius */
+  --radius: 1rem;
+
+  /* Sidebar */
+  --sidebar: oklch(1 0 0 / 0.7);
+  --sidebar-foreground: var(--color-950);
+  --sidebar-primary: var(--color-600);
+  --sidebar-primary-foreground: var(--color-50);
+  --sidebar-accent: var(--color-500);
+  --sidebar-accent-foreground: var(--color-50);
+  --sidebar-border: oklch(0.63 0.25 17 / 0.15);
+  --sidebar-ring: var(--color-500);
+}
+
+.dark {
+  /* Optional: Adjust for dark mode if desired */
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-hover: var(--glass-hover);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-glass-border outline-ring/50;
+  }
+  html {
+    background: linear-gradient(
+      135deg,
+      var(--color-50) 0%,
+      var(--color-100) 100%
+    );
+    background-attachment: fixed;
+  }
+  body {
+    @apply bg-transparent text-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass-bg backdrop-blur-md border border-glass-border rounded-xl transition-all duration-300;
+    box-shadow:
+      0 8px 32px oklch(0.63 0.25 17 / 0.08),
+      inset 0 1px 0 oklch(1 0 0 / 0.5);
+  }
+
+  .glass-card:hover {
+    @apply bg-glass-hover border-glass-border;
+    box-shadow:
+      0 12px 48px oklch(0.63 0.25 17 / 0.12),
+      inset 0 1px 0 oklch(1 0 0 / 0.5);
+  }
+
+  .glass-button {
+    @apply px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-all duration-200 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background;
+    box-shadow: 0 4px 16px oklch(0.55 0.22 16 / 0.3);
+  }
+
+  .glass-button:hover {
+    box-shadow: 0 6px 24px oklch(0.55 0.22 16 / 0.4);
+  }
+
+  .glass-input {
+    @apply w-full px-4 py-2 rounded-lg bg-glass-bg border border-glass-border text-foreground placeholder-foreground-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;
+  }
+
+  .glass-input:focus {
+    background-color: oklch(1 0 0 / 0.85);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px oklch(0.63 0.25 17 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px oklch(0.63 0.25 17 / 0.5);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
