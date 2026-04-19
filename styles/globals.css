@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Provided Palette Variables */
+  --color-50: oklch(0.95 0.03 356);
+  --color-100: oklch(0.85 0.09 359);
+  --color-200: oklch(0.77 0.15 1);
+  --color-300: oklch(0.7 0.2 5);
+  --color-400: oklch(0.66 0.24 10);
+  --color-500: oklch(0.63 0.25 17);
+  --color-600: oklch(0.55 0.22 16);
+  --color-700: oklch(0.45 0.18 15);
+  --color-800: oklch(0.36 0.14 14);
+  --color-900: oklch(0.25 0.1 10);
+  --color-950: oklch(0.14 0.06 1);
+
+  /* Glassware Pink/Red Base */
+  --background: var(--color-50);
+  --foreground: var(--color-950);
+
+  --card: oklch(1 0 0 / 0.7); /* Translucent White */
+  --card-foreground: var(--color-950);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--color-950);
+
+  /* Vivid Rose Glass Brand Colors */
+  --primary: var(--color-600);
+  --primary-foreground: var(--color-50);
+
+  --secondary: var(--color-100);
+  --secondary-foreground: var(--color-700);
+
+  --muted: oklch(0.95 0.01 356);
+  --muted-foreground: var(--color-600);
+
+  --accent: var(--color-200);
+  --accent-foreground: var(--color-800);
+
+  --destructive: oklch(0.55 0.22 16);
+  --destructive-foreground: oklch(1 0 0);
+
+  --border: oklch(0.9 0.02 356);
+  --input: oklch(0.9 0.02 356);
+  --ring: var(--color-600);
+
+  /* Rose/Ruby Chart Palette */
+  --chart-1: var(--color-500);
+  --chart-2: var(--color-300);
+  --chart-3: var(--color-700);
+  --chart-4: var(--color-200);
+  --chart-5: var(--color-900);
+
+  --radius: 0.75rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.98 0.01 356);
+  --sidebar-foreground: var(--color-800);
+  --sidebar-primary: var(--color-600);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--color-100);
+  --sidebar-accent-foreground: var(--color-600);
+  --sidebar-border: oklch(0.92 0.02 356);
+  --sidebar-ring: var(--color-600);
+}
+
+.dark {
+  /* Dark Glass / Ruby Night */
+  --background: var(--color-950);
+  --foreground: var(--color-50);
+
+  --card: oklch(0.14 0.06 1 / 0.8);
+  --card-foreground: var(--color-50);
+
+  --popover: var(--color-950);
+  --popover-foreground: var(--color-50);
+
+  --primary: var(--color-500); /* Slightly brighter for dark mode glow */
+  --primary-foreground: var(--color-950);
+
+  --secondary: var(--color-900);
+  --secondary-foreground: var(--color-200);
+
+  --muted: var(--color-900);
+  --muted-foreground: var(--color-400);
+
+  --accent: var(--color-800);
+  --accent-foreground: var(--color-100);
+
+  --destructive: oklch(0.45 0.18 15);
+  --destructive-foreground: var(--color-50);
+
+  --border: var(--color-800);
+  --input: var(--color-800);
+  --ring: var(--color-500);
+
+  --chart-1: var(--color-400);
+  --chart-2: var(--color-600);
+  --chart-3: var(--color-300);
+  --chart-4: var(--color-700);
+  --chart-5: var(--color-500);
+
+  --sidebar: oklch(0.12 0.05 1);
+  --sidebar-foreground: var(--color-200);
+  --sidebar-primary: var(--color-500);
+  --sidebar-primary-foreground: var(--color-950);
+  --sidebar-accent: var(--color-900);
+  --sidebar-accent-foreground: var(--color-100);
+  --sidebar-border: var(--color-800);
+  --sidebar-ring: var(--color-500);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: radial-gradient(
+      at top left,
+      oklch(1 0 0),
+      var(--background)
+    );
+  }
+}
